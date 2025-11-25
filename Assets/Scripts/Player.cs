@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int speed;
     [SerializeField] private GameObject wall;
+    public Action updateScore;
     void Start()
     {
         
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("wall"))
         {
             Debug.Log("Colisiono con " + other.gameObject.tag);
+            updateScore.Invoke();
         }
     }
 }
