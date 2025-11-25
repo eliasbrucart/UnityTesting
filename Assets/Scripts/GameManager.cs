@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour{
     [SerializeField] private Player player;
-    [SerializeField] private int score;
+    [SerializeField] public int score;
     void Start(){
         player.updateScore += UpdateScore;
     }
@@ -15,6 +15,6 @@ public class GameManager : MonoBehaviour{
     }
 
     void UpdateScore() {
-        score++;
+        score += 1;
     }
 }
