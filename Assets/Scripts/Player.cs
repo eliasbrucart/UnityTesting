@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int speed;
-    [SerializeField] private GameObject wall;
+    //[SerializeField] private GameObject wall;
     public Action updateScore;
     void Start(){
 
