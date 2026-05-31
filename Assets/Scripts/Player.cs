@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int speed;
     //[SerializeField] private GameObject wall;
     public Action updateScore;
+    public Action<Vector3> shootBullet;
+    [SerializeField]private Bullet bullet;
     void Start(){
 
     }
@@ -35,6 +37,10 @@ public class Player : MonoBehaviour
             transform.position += direction * speed * Time.deltaTime;
             Debug.Log("Se aprieta tecla A");
         }
+
+        if (Mouse.current.leftButton.wasPressedThisFrame) {
+            Shoot();
+        }
     }
 
     private void OnCollisionEnter(Collision collision){
@@ -48,5 +54,10 @@ public class Player : MonoBehaviour
             Debug.Log("Colisiono con " + other.gameObject.tag);
             updateScore.Invoke();
         }
+    }
+
+    private void Shoot() {
+        Instantiate(bullet, Vector3.forward, Quaternion.identity);
+        shootBullet.Invoke(transform.forward);
     }
 }
