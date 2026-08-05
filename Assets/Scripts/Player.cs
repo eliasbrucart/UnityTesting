@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     //[SerializeField] private GameObject wall;
     public Action updateScore;
     public Action<Vector3> shootBullet;
-    [SerializeField]private Bullet bullet;
+    [SerializeField]private GameObject bullet;
     void Start(){
 
     }
